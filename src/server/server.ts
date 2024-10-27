@@ -141,11 +141,7 @@ export const createServer = (
         (attribute) => attribute.Name === "esAppData2"
       );
       const sub = attr.find((attribute) => attribute.Name === "sub");
-      let status;
-
-      if (user.Enabled) {
-        status = "ACTIVE";
-      }
+      const status = user.Enabled ? "ACTIVE" : "INACTIVE";
 
       if (!userPoolClient) {
         res.status(400).json({
