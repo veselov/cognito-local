@@ -138,7 +138,7 @@ export const createServer = (
       }
       const attr = user.Attributes;
       const appData2 = attr.find(
-        (attribute) => attribute.Name === "esAppData2"
+        (attribute) => attribute.Name === "custom:appIds"
       );
       const sub = attr.find((attribute) => attribute.Name === "sub");
       const status = user.Enabled ? "ACTIVE" : "INACTIVE";
@@ -163,9 +163,9 @@ export const createServer = (
         nbf: now,
         aud: clientId,
         token_use: "access",
-        esAppData2: appData2?.Value,
-        login: user.Username,
-        status: status,
+        "custom:appIds": appData2?.Value,
+        "custom:login": user.Username,
+        "custom:status": status,
       };
 
       const idToken = {

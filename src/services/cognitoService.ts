@@ -245,6 +245,13 @@ export const USER_POOL_AWS_DEFAULTS: UserPoolDefaults = {
         MinValue: "0",
       },
     },
+    {
+      Name: "custom:appIds",
+      AttributeDataType: "String",
+      DeveloperOnlyAttribute: false,
+      Mutable: true,
+      Required: false,
+    },
   ],
   VerificationMessageTemplate: {
     DefaultEmailOption: "CONFIRM_WITH_CODE",
