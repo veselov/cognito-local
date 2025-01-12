@@ -169,11 +169,12 @@ export const createServer = (
       };
 
       const idToken = {
-        sub: sub,
+        sub: sub?.Value,
         client_id: clientId,
         jti: uuid.v4(),
         auth_time: now,
         iat: now,
+        aud: clientId,
         token_use: "id",
       };
 
