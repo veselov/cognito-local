@@ -163,7 +163,6 @@ export const createServer = (
         nbf: now,
         aud: clientId,
         token_use: "access",
-        "custom:appIds": appData2?.Value,
         "custom:login": user.Username,
         "custom:status": status,
       };
@@ -176,6 +175,7 @@ export const createServer = (
         iat: now,
         aud: clientId,
         token_use: "id",
+        "custom:appIds": appData2?.Value,
       };
 
       res.status(200).json({
