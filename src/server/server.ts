@@ -13,6 +13,7 @@ import Pino from "pino-http";
 import { CognitoService } from "../services";
 import { AppClient } from "../services/appClient";
 import jwt, { JwtPayload, VerifyOptions } from "jsonwebtoken";
+import { emailClaims } from "./emailClaims";
 
 export interface ServerOptions {
   port: number;
@@ -176,6 +177,7 @@ export const createServer = (
         aud: clientId,
         token_use: "id",
         "custom:appIds": appData2?.Value,
+        ...emailClaims(attr),
       };
 
       res.status(200).json({
