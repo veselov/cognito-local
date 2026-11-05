@@ -1,4 +1,4 @@
-FROM node:16-alpine as builder
+FROM --platform=$BUILDPLATFORM node:16-alpine as builder
 WORKDIR /app
 
 # dependencies
